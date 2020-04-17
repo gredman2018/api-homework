@@ -1,6 +1,5 @@
 var app = {
 	nyTimesArticles : [],
-	flickrData : [],
 
 	initialize: function() {
 		app.getNYTimesData();
@@ -8,9 +7,10 @@ var app = {
 
 	makeHTML: function() {
 		var theHTML = '';
-		for (var i = 0; i < app.nyTimesArticles.length; i++){
-			theHTML += "<div class='flickrArticle'>";
-			theHTML += "<h3>" + app.book_detailsb[i].title + "</h3>";
+		for (var i = 0; i < 15 ; i++){
+			theHTML += "<div class='nyTimesBooks'>";
+			theHTML += "<a href=" + app.nyTimesBooks[i].amazon_product_url + ">";
+			theHTML += app.nyTimesBooks[i].title + "</a>";
 			theHTML += "</div>";
 		}
 		$('.container').html(theHTML);
@@ -29,12 +29,9 @@ var app = {
 				console.log(err);
 			},
 			success: function(data){
-				//console.log(data);
-				app.nyTimesBooks = data.response.docs;
-				console.log(app.nyTimesBooks)
-				// app.nyTimesArticles = data.book_details.title;
-				// console.log(app.nyTimesArticles);
-				// app.makeHTML();
+				app.nyTimesBooks = data.results.books
+				app.makeHTML();
+
 			}
 		});
 	}

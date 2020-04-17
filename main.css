@@ -1,0 +1,21 @@
+*{
+	margin: 20px;
+	font-family: arial;
+}
+
+.container{
+	margin-top: 10px;
+}
+
+
+a:link{
+	color: #3d3d40;
+
+}
+a:hover{
+	color: #f7316d;
+}
+
+a:visited{
+	color: #b34465;
+}
